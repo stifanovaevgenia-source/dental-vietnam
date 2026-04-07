@@ -42,9 +42,7 @@ const Index = () => {
 
           {/* Sub-headline */}
           <p className="text-sm md:text-base text-muted-foreground mb-8 max-w-md leading-relaxed">
-            Ваш консультант Елена встретит вас в аэропорту
-            <br />
-            и покажет лучшие места Вьетнама.
+            Наш консультант Елена встретит Вас по прилету и станет Вашим личным проводником в мир новой улыбки и комфортного отдыха.
           </p>
 
           {/* Feature icons row */}
