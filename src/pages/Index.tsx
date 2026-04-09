@@ -50,7 +50,7 @@ const Index = () => {
         <img
           src={heroImage}
           alt="Координатор клиники на фоне бухты Халонг"
-          className="absolute inset-0 w-full h-full object-cover object-[center_20%]"
+          className="absolute inset-0 w-full h-full object-cover object-[center_15%]"
           width={1920}
           height={1080}
         />
@@ -75,7 +75,7 @@ const Index = () => {
             </div>
 
             <a
-              href="https://t.me/share/url?url=&text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5!%20%D0%A5%D0%BE%D1%87%D1%83%20%D0%B7%D0%B0%D0%BF%D0%B8%D1%81%D0%B0%D1%82%D1%8C%D1%81%D1%8F%20%D0%BD%D0%B0%20%D0%BA%D0%BE%D0%BD%D1%81%D1%83%D0%BB%D1%8C%D1%82%D0%B0%D1%86%D0%B8%D1%8E%20%D0%BF%D0%BE%20%D0%BF%D0%BE%D0%B2%D0%BE%D0%B4%D1%83%20%D0%BD%D0%BE%D0%B2%D0%BE%D0%B9%20%D1%83%D0%BB%D1%8B%D0%B1%D0%BA%D0%B8%20%D0%B2%20%D0%A5%D0%B0%D0%BB%D0%BE%D0%BD%D0%B3%D0%B5."
+              href="https://t.me/stomatolog_vietnam?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5!%20%D0%A5%D0%BE%D1%87%D1%83%20%D0%B7%D0%B0%D0%BF%D0%B8%D1%81%D0%B0%D1%82%D1%8C%D1%81%D1%8F%20%D0%BD%D0%B0%20%D0%BA%D0%BE%D0%BD%D1%81%D1%83%D0%BB%D1%8C%D1%82%D0%B0%D1%86%D0%B8%D1%8E%20%D0%BF%D0%BE%20%D0%BF%D0%BE%D0%B2%D0%BE%D0%B4%D1%83%20%D0%BD%D0%BE%D0%B2%D0%BE%D0%B9%20%D1%83%D0%BB%D1%8B%D0%B1%D0%BA%D0%B8%20%D0%B2%20%D0%A5%D0%B0%D0%BB%D0%BE%D0%BD%D0%B3%D0%B5."
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center justify-center gap-2 bg-primary hover:bg-primary/90 text-primary-foreground text-[17px] md:text-lg font-bold px-8 py-7 rounded-xl w-full md:w-fit uppercase tracking-wide transition-colors"
@@ -112,7 +112,7 @@ const Index = () => {
               </div>
               <CardContent className="p-5 md:p-6">
                 <h3 className="font-['Playfair_Display',serif] text-[18px] font-bold text-foreground mb-1">
-                  Эстетика зоны улыбки (Виниры)
+                  Виниры (эстетика зоны улыбки)
                 </h3>
                 <p className="text-[15px] text-muted-foreground mb-4 leading-relaxed">
                   Тончайшие керамические виниры для безупречного естественного результата.
@@ -135,7 +135,7 @@ const Index = () => {
               </div>
               <CardContent className="p-5 md:p-6">
                 <h3 className="font-['Playfair_Display',serif] text-[18px] font-bold text-foreground mb-1">
-                  Восстановление зуба (Коронки)
+                  Коронки (восстановление зуба)
                 </h3>
                 <p className="text-[15px] text-muted-foreground mb-4 leading-relaxed">
                   Высокопрочные циркониевые и цельнокерамические коронки.
@@ -159,7 +159,7 @@ const Index = () => {
               </div>
               <CardContent className="p-5 md:p-6">
                 <h3 className="font-['Playfair_Display',serif] text-[18px] font-bold text-foreground mb-1">
-                  Восстановление утраченных зубов (Имплантация)
+                  Имплантация (восстановление утраченных зубов)
                 </h3>
                 <p className="text-[15px] text-muted-foreground mb-4 leading-relaxed">
                   Имплантаты премиум-класса от ведущих мировых производителей.
@@ -178,7 +178,7 @@ const Index = () => {
 
           <div className="mt-8 md:mt-10 text-center">
             <a
-              href="https://t.me/share/url?url=&text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5!%20%D0%A5%D0%BE%D1%87%D1%83%20%D0%B7%D0%B0%D0%BF%D0%B8%D1%81%D0%B0%D1%82%D1%8C%D1%81%D1%8F%20%D0%BD%D0%B0%20%D0%BA%D0%BE%D0%BD%D1%81%D1%83%D0%BB%D1%8C%D1%82%D0%B0%D1%86%D0%B8%D1%8E%20%D0%BF%D0%BE%20%D0%BF%D0%BE%D0%B2%D0%BE%D0%B4%D1%83%20%D0%BD%D0%BE%D0%B2%D0%BE%D0%B9%20%D1%83%D0%BB%D1%8B%D0%B1%D0%BA%D0%B8%20%D0%B2%20%D0%A5%D0%B0%D0%BB%D0%BE%D0%BD%D0%B3%D0%B5."
+              href="https://t.me/stomatolog_vietnam?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5!%20%D0%A5%D0%BE%D1%87%D1%83%20%D0%B7%D0%B0%D0%BF%D0%B8%D1%81%D0%B0%D1%82%D1%8C%D1%81%D1%8F%20%D0%BD%D0%B0%20%D0%BA%D0%BE%D0%BD%D1%81%D1%83%D0%BB%D1%8C%D1%82%D0%B0%D1%86%D0%B8%D1%8E%20%D0%BF%D0%BE%20%D0%BF%D0%BE%D0%B2%D0%BE%D0%B4%D1%83%20%D0%BD%D0%BE%D0%B2%D0%BE%D0%B9%20%D1%83%D0%BB%D1%8B%D0%B1%D0%BA%D0%B8%20%D0%B2%20%D0%A5%D0%B0%D0%BB%D0%BE%D0%BD%D0%B3%D0%B5."
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center justify-center gap-2 bg-primary hover:bg-primary/90 text-primary-foreground text-[17px] md:text-lg font-bold px-8 py-7 rounded-xl w-full md:w-auto uppercase tracking-wide transition-colors"
@@ -342,11 +342,11 @@ const Index = () => {
           </div>
 
           <div className="flex flex-col sm:flex-row items-center justify-center gap-3 mt-6">
-            <a href="https://t.me/" target="_blank" rel="noopener noreferrer"
+            <a href="https://t.me/stomatolog_vietnam" target="_blank" rel="noopener noreferrer"
               className="inline-flex items-center gap-2 bg-[hsl(200,80%,50%)] hover:bg-[hsl(200,80%,45%)] text-white font-bold text-[15px] px-6 py-3.5 rounded-xl transition-colors w-full sm:w-auto justify-center uppercase tracking-wide">
               <Send className="w-5 h-5" /> СВЯЗАТЬСЯ В TELEGRAM
             </a>
-            <a href="https://wa.me/" target="_blank" rel="noopener noreferrer"
+            <a href="https://wa.me/79041274825" target="_blank" rel="noopener noreferrer"
               className="inline-flex items-center gap-2 bg-[hsl(142,70%,40%)] hover:bg-[hsl(142,70%,35%)] text-white font-bold text-[15px] px-6 py-3.5 rounded-xl transition-colors w-full sm:w-auto justify-center uppercase tracking-wide">
               <MessageCircle className="w-5 h-5" /> СВЯЗАТЬСЯ В WHATSAPP
             </a>
