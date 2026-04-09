@@ -7,14 +7,57 @@ import implantImg from "@/assets/implant.jpg";
 import logoImg from "@/assets/logo.png";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
-import { Car, Hotel, Languages, Ship, Star, Phone, Plane, UserCheck, MessageCircle, Send } from "lucide-react";
-import { useRef } from "react";
+import { Car, Hotel, Languages, Ship, Star, Phone, Plane, UserCheck, MessageCircle, Send, ChevronLeft, ChevronRight } from "lucide-react";
+import { useRef, useState } from "react";
+
+const TELEGRAM_LINK = "https://t.me/stomatolog_vietnam?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5!%20%D0%A5%D0%BE%D1%87%D1%83%20%D0%B7%D0%B0%D0%BF%D0%B8%D1%81%D0%B0%D1%82%D1%8C%D1%81%D1%8F%20%D0%BD%D0%B0%20%D0%BA%D0%BE%D0%BD%D1%81%D1%83%D0%BB%D1%8C%D1%82%D0%B0%D1%86%D0%B8%D1%8E%20%D0%BF%D0%BE%20%D0%BF%D0%BE%D0%B2%D0%BE%D0%B4%D1%83%20%D0%BD%D0%BE%D0%B2%D0%BE%D0%B9%20%D1%83%D0%BB%D1%8B%D0%B1%D0%BA%D0%B8%20%D0%B2%20%D0%A5%D0%B0%D0%BB%D0%BE%D0%BD%D0%B3%D0%B5.";
+
+const testimonials = [
+  { name: "Марина К.", text: "Невероятный сервис! Ульяна помогла с заселением и сопровождала в клинике. Виниры выглядят потрясающе.", date: "Март 2026" },
+  { name: "Алексей Д.", text: "Имплантация прошла безболезненно. Сэкономил более 60% по сравнению с московскими клиниками.", date: "Февраль 2026" },
+  { name: "Ольга С.", text: "Совместили отдых и лечение. Бухта Халонг — невероятная красота, а зубы теперь идеальные.", date: "Январь 2026" },
+  { name: "Дмитрий Л.", text: "Коронки поставили за два визита. Качество на уровне лучших европейских клиник, а цена в разы ниже.", date: "Март 2026" },
+  { name: "Наталья В.", text: "Координатор Евгения была рядом на каждом этапе. Чувствовала себя как дома, несмотря на другую страну.", date: "Декабрь 2025" },
+  { name: "Игорь М.", text: "Приехал на имплантацию четырех зубов. Все прошло идеально, врачи — настоящие профессионалы.", date: "Февраль 2026" },
+  { name: "Елена Р.", text: "Виниры мечты! Улыбаюсь теперь без стеснения. Спасибо команде Dental Vietnam за новую жизнь.", date: "Январь 2026" },
+  { name: "Сергей Т.", text: "Отличная организация от трансфера до клиники. Рекомендую всем, кто думает о лечении за рубежом.", date: "Март 2026" },
+];
+
+const StarRating = ({ rating }: { rating: number }) => (
+  <div className="flex items-center gap-1">
+    <div className="flex gap-0.5">
+      {Array.from({ length: 5 }).map((_, i) => (
+        <Star
+          key={i}
+          className={`w-3 h-3 ${
+            i < Math.floor(rating)
+              ? "fill-primary text-primary"
+              : i < rating
+              ? "fill-primary/50 text-primary"
+              : "text-muted-foreground/30"
+          }`}
+        />
+      ))}
+    </div>
+    <span className="text-[11px] font-bold text-foreground ml-0.5">{rating}</span>
+  </div>
+);
 
 const Index = () => {
   const servicesRef = useRef<HTMLDivElement>(null);
+  const carouselRef = useRef<HTMLDivElement>(null);
 
   const scrollToServices = () => {
     servicesRef.current?.scrollIntoView({ behavior: "smooth" });
+  };
+
+  const scrollCarousel = (direction: "left" | "right") => {
+    if (!carouselRef.current) return;
+    const scrollAmount = carouselRef.current.offsetWidth * 0.8;
+    carouselRef.current.scrollBy({
+      left: direction === "left" ? -scrollAmount : scrollAmount,
+      behavior: "smooth",
+    });
   };
 
   return (
@@ -45,16 +88,16 @@ const Index = () => {
         </div>
       </nav>
 
-      {/* Hero Section — rich dark overlay restored */}
+      {/* Hero Section */}
       <section id="hero" className="relative min-h-[70vh] md:min-h-[80vh] w-full overflow-hidden">
         <img
           src={heroImage}
           alt="Координатор клиники на фоне бухты Халонг"
-          className="absolute inset-0 w-full h-full object-cover object-[center_15%]"
+          className="absolute inset-0 w-full h-full object-cover object-[70%_15%] md:object-[center_15%]"
           width={1920}
           height={1080}
         />
-        <div className="absolute inset-0 bg-gradient-to-b md:bg-gradient-to-r from-[hsl(210,40%,18%,0.92)] via-[hsl(210,35%,22%,0.82)] to-[hsl(210,20%,30%,0.25)] md:from-[hsl(210,40%,18%,0.94)] md:via-[hsl(210,35%,22%,0.78)] md:to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-b md:bg-gradient-to-r from-[hsl(210,40%,18%,0.92)] via-[hsl(210,35%,22%,0.82)] to-[hsl(210,20%,30%,0.35)] md:from-[hsl(210,40%,18%,0.94)] md:via-[hsl(210,35%,22%,0.78)] md:to-transparent" />
 
         <div className="relative z-10 min-h-[70vh] md:min-h-[80vh] flex flex-col justify-end md:justify-center px-5 md:px-12 pb-8 md:pb-0 max-w-6xl mx-auto">
           <div className="max-w-xl">
@@ -68,14 +111,15 @@ const Index = () => {
               Профессиональный трансфер из аэропорта и полное русскоязычное сопровождение от наших координаторов.
             </p>
 
-            <div className="bg-primary rounded-lg px-5 py-3 mb-5 max-w-md">
-              <p className="text-[16px] md:text-lg font-extrabold text-primary-foreground uppercase tracking-wide">
+            {/* Discount — semi-transparent gold frame */}
+            <div className="border border-[hsl(38,65%,55%,0.6)] bg-[hsl(38,60%,50%,0.12)] backdrop-blur-sm rounded-lg px-5 py-3 mb-5 max-w-md">
+              <p className="text-[16px] md:text-lg font-extrabold text-[hsl(38,65%,70%)] uppercase tracking-wide">
                 СКИДКА 40% ДЛЯ ВСЕХ ОТ 35 ЛЕТ
               </p>
             </div>
 
             <a
-              href="https://t.me/stomatolog_vietnam?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5!%20%D0%A5%D0%BE%D1%87%D1%83%20%D0%B7%D0%B0%D0%BF%D0%B8%D1%81%D0%B0%D1%82%D1%8C%D1%81%D1%8F%20%D0%BD%D0%B0%20%D0%BA%D0%BE%D0%BD%D1%81%D1%83%D0%BB%D1%8C%D1%82%D0%B0%D1%86%D0%B8%D1%8E%20%D0%BF%D0%BE%20%D0%BF%D0%BE%D0%B2%D0%BE%D0%B4%D1%83%20%D0%BD%D0%BE%D0%B2%D0%BE%D0%B9%20%D1%83%D0%BB%D1%8B%D0%B1%D0%BA%D0%B8%20%D0%B2%20%D0%A5%D0%B0%D0%BB%D0%BE%D0%BD%D0%B3%D0%B5."
+              href={TELEGRAM_LINK}
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center justify-center gap-2 bg-primary hover:bg-primary/90 text-primary-foreground text-[17px] md:text-lg font-bold px-8 py-7 rounded-xl w-full md:w-fit uppercase tracking-wide transition-colors"
@@ -87,7 +131,7 @@ const Index = () => {
         </div>
       </section>
 
-      {/* ===== SERVICES — PRIMARY FOCUS ===== */}
+      {/* ===== SERVICES ===== */}
       <section ref={servicesRef} id="services" className="py-12 md:py-20 px-4 md:px-6 bg-background">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-8 md:mb-12">
@@ -97,8 +141,8 @@ const Index = () => {
             <p className="text-[16px] text-muted-foreground max-w-lg mx-auto mb-4">
               Стоматология мирового уровня по доступным ценам
             </p>
-            <div className="inline-block bg-primary rounded-lg px-5 py-2.5">
-              <p className="text-[15px] md:text-base font-extrabold text-primary-foreground uppercase tracking-wide">
+            <div className="inline-block border border-primary/40 bg-primary/10 rounded-lg px-5 py-2.5">
+              <p className="text-[15px] md:text-base font-extrabold text-primary uppercase tracking-wide">
                 СКИДКА 40% ДЛЯ ВСЕХ ПАЦИЕНТОВ ОТ 35 ЛЕТ
               </p>
             </div>
@@ -178,7 +222,7 @@ const Index = () => {
 
           <div className="mt-8 md:mt-10 text-center">
             <a
-              href="https://t.me/stomatolog_vietnam?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5!%20%D0%A5%D0%BE%D1%87%D1%83%20%D0%B7%D0%B0%D0%BF%D0%B8%D1%81%D0%B0%D1%82%D1%8C%D1%81%D1%8F%20%D0%BD%D0%B0%20%D0%BA%D0%BE%D0%BD%D1%81%D1%83%D0%BB%D1%8C%D1%82%D0%B0%D1%86%D0%B8%D1%8E%20%D0%BF%D0%BE%20%D0%BF%D0%BE%D0%B2%D0%BE%D0%B4%D1%83%20%D0%BD%D0%BE%D0%B2%D0%BE%D0%B9%20%D1%83%D0%BB%D1%8B%D0%B1%D0%BA%D0%B8%20%D0%B2%20%D0%A5%D0%B0%D0%BB%D0%BE%D0%BD%D0%B3%D0%B5."
+              href={TELEGRAM_LINK}
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center justify-center gap-2 bg-primary hover:bg-primary/90 text-primary-foreground text-[17px] md:text-lg font-bold px-8 py-7 rounded-xl w-full md:w-auto uppercase tracking-wide transition-colors"
@@ -242,7 +286,7 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Team — compact coordinator cards (scaled down 70%) */}
+      {/* Team — coordinator cards with ratings */}
       <section id="team" className="py-8 md:py-12 px-4 md:px-6 bg-muted/30">
         <div className="max-w-2xl mx-auto">
           <h2 className="font-['Playfair_Display',serif] text-[18px] md:text-xl font-bold text-foreground mb-5 text-center">
@@ -259,7 +303,8 @@ const Index = () => {
                   <h3 className="font-['Playfair_Display',serif] text-[13px] md:text-[14px] font-bold text-foreground leading-tight mb-0.5">
                     Ульяна
                   </h3>
-                  <p className="text-[11px] text-primary font-medium mb-1">Ведущий координатор и переводчик</p>
+                  <StarRating rating={5.0} />
+                  <p className="text-[11px] text-primary font-medium mb-1 mt-1">Ведущий координатор и переводчик</p>
                   <p className="text-[11px] text-muted-foreground leading-snug">
                     Управляющая вашим пребыванием, логистикой и переводом в клинике.
                   </p>
@@ -277,7 +322,8 @@ const Index = () => {
                   <h3 className="font-['Playfair_Display',serif] text-[13px] md:text-[14px] font-bold text-foreground leading-tight mb-0.5">
                     Евгения
                   </h3>
-                  <p className="text-[11px] text-primary font-medium mb-1">Координатор</p>
+                  <StarRating rating={4.9} />
+                  <p className="text-[11px] text-primary font-medium mb-1 mt-1">Координатор</p>
                   <p className="text-[11px] text-muted-foreground leading-snug">
                     Поддержка и комфорт на каждом этапе вашего лечения.
                   </p>
@@ -288,31 +334,52 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Testimonials */}
+      {/* Testimonials — swipeable carousel */}
       <section id="testimonials" className="py-10 md:py-16 px-4 md:px-6 bg-background">
         <div className="max-w-6xl mx-auto">
           <h2 className="font-['Playfair_Display',serif] text-[22px] md:text-3xl font-bold text-foreground mb-8 text-center">
             Отзывы наших пациентов
           </h2>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-            {[
-              { name: "Марина К.", text: "Невероятный сервис! Ульяна помогла с заселением и сопровождала в клинике. Виниры выглядят потрясающе." },
-              { name: "Алексей Д.", text: "Имплантация прошла безболезненно. Сэкономил более 60% по сравнению с московскими клиниками." },
-              { name: "Ольга С.", text: "Совместили отдых и лечение. Бухта Халонг — невероятная красота, а зубы теперь идеальные." },
-            ].map((review, i) => (
-              <Card key={i} className="bg-card border-border shadow-sm">
-                <CardContent className="p-5">
-                  <div className="flex gap-0.5 mb-3">
-                    {Array.from({ length: 5 }).map((_, j) => (
-                      <Star key={j} className="w-3.5 h-3.5 fill-primary text-primary" />
-                    ))}
-                  </div>
-                  <p className="text-[14px] text-muted-foreground mb-2 leading-relaxed italic">"{review.text}"</p>
-                  <p className="text-[14px] font-bold text-foreground">{review.name}</p>
-                </CardContent>
-              </Card>
-            ))}
+          <div className="relative">
+            <button
+              onClick={() => scrollCarousel("left")}
+              className="hidden md:flex absolute -left-4 top-1/2 -translate-y-1/2 z-10 w-9 h-9 rounded-full bg-card border border-border shadow-md items-center justify-center hover:bg-muted transition-colors"
+              aria-label="Предыдущий отзыв"
+            >
+              <ChevronLeft className="w-5 h-5 text-foreground" />
+            </button>
+            <button
+              onClick={() => scrollCarousel("right")}
+              className="hidden md:flex absolute -right-4 top-1/2 -translate-y-1/2 z-10 w-9 h-9 rounded-full bg-card border border-border shadow-md items-center justify-center hover:bg-muted transition-colors"
+              aria-label="Следующий отзыв"
+            >
+              <ChevronRight className="w-5 h-5 text-foreground" />
+            </button>
+
+            <div
+              ref={carouselRef}
+              className="flex gap-4 overflow-x-auto snap-x snap-mandatory scrollbar-hide pb-4 -mx-4 px-4"
+              style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}
+            >
+              {testimonials.map((review, i) => (
+                <Card key={i} className="bg-card border-border shadow-sm shrink-0 w-[280px] md:w-[320px] snap-start">
+                  <CardContent className="p-5">
+                    <div className="flex gap-0.5 mb-3">
+                      {Array.from({ length: 5 }).map((_, j) => (
+                        <Star key={j} className="w-3.5 h-3.5 fill-primary text-primary" />
+                      ))}
+                    </div>
+                    <p className="text-[14px] text-muted-foreground mb-3 leading-relaxed italic">"{review.text}"</p>
+                    <div className="flex items-center justify-between">
+                      <p className="text-[14px] font-bold text-foreground">{review.name}</p>
+                      <p className="text-[12px] text-muted-foreground">{review.date}</p>
+                    </div>
+                  </CardContent>
+                </Card>
+              ))}
+            </div>
+            <p className="text-center text-[12px] text-muted-foreground mt-2 md:hidden">Свайпайте для просмотра</p>
           </div>
 
           <div className="mt-6 text-center">
