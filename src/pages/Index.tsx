@@ -23,7 +23,9 @@ const Index = () => {
       <nav className="sticky top-0 z-50 bg-[hsl(210,55%,18%)] text-white">
         <div className="max-w-6xl mx-auto px-4 py-2.5 flex items-center justify-between">
           <div className="flex items-center gap-2.5">
-            <img src={logoImg} alt="Dental Vietnam" className="w-9 h-9 rounded-lg" width={36} height={36} />
+            <div className="w-10 h-10 rounded-full bg-white flex items-center justify-center shadow-md">
+              <img src={logoImg} alt="Dental Vietnam" className="w-8 h-8 rounded-full object-contain" width={32} height={32} />
+            </div>
             <span className="text-base md:text-lg font-extrabold tracking-tight uppercase">
               DENTAL VIETNAM
             </span>
@@ -48,7 +50,7 @@ const Index = () => {
         <img
           src={heroImage}
           alt="Координатор клиники на фоне бухты Халонг"
-          className="absolute inset-0 w-full h-full object-cover object-center"
+          className="absolute inset-0 w-full h-full object-cover object-[center_20%]"
           width={1920}
           height={1080}
         />
@@ -72,13 +74,15 @@ const Index = () => {
               </p>
             </div>
 
-            <Button
-              onClick={scrollToServices}
-              size="lg"
-              className="bg-primary hover:bg-primary/90 text-primary-foreground text-[17px] md:text-lg font-bold px-8 py-7 rounded-xl w-full md:w-fit uppercase tracking-wide"
+            <a
+              href="https://t.me/share/url?url=&text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5!%20%D0%A5%D0%BE%D1%87%D1%83%20%D0%B7%D0%B0%D0%BF%D0%B8%D1%81%D0%B0%D1%82%D1%8C%D1%81%D1%8F%20%D0%BD%D0%B0%20%D0%BA%D0%BE%D0%BD%D1%81%D1%83%D0%BB%D1%8C%D1%82%D0%B0%D1%86%D0%B8%D1%8E%20%D0%BF%D0%BE%20%D0%BF%D0%BE%D0%B2%D0%BE%D0%B4%D1%83%20%D0%BD%D0%BE%D0%B2%D0%BE%D0%B9%20%D1%83%D0%BB%D1%8B%D0%B1%D0%BA%D0%B8%20%D0%B2%20%D0%A5%D0%B0%D0%BB%D0%BE%D0%BD%D0%B3%D0%B5."
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center justify-center gap-2 bg-primary hover:bg-primary/90 text-primary-foreground text-[17px] md:text-lg font-bold px-8 py-7 rounded-xl w-full md:w-fit uppercase tracking-wide transition-colors"
             >
+              <Send className="w-5 h-5" />
               ЗАПИСАТЬСЯ НА КОНСУЛЬТАЦИЮ
-            </Button>
+            </a>
           </div>
         </div>
       </section>
@@ -173,13 +177,15 @@ const Index = () => {
           </div>
 
           <div className="mt-8 md:mt-10 text-center">
-            <Button
-              size="lg"
-              className="bg-primary hover:bg-primary/90 text-primary-foreground text-[17px] md:text-lg font-bold px-8 py-7 rounded-xl w-full md:w-auto uppercase tracking-wide"
+            <a
+              href="https://t.me/share/url?url=&text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5!%20%D0%A5%D0%BE%D1%87%D1%83%20%D0%B7%D0%B0%D0%BF%D0%B8%D1%81%D0%B0%D1%82%D1%8C%D1%81%D1%8F%20%D0%BD%D0%B0%20%D0%BA%D0%BE%D0%BD%D1%81%D1%83%D0%BB%D1%8C%D1%82%D0%B0%D1%86%D0%B8%D1%8E%20%D0%BF%D0%BE%20%D0%BF%D0%BE%D0%B2%D0%BE%D0%B4%D1%83%20%D0%BD%D0%BE%D0%B2%D0%BE%D0%B9%20%D1%83%D0%BB%D1%8B%D0%B1%D0%BA%D0%B8%20%D0%B2%20%D0%A5%D0%B0%D0%BB%D0%BE%D0%BD%D0%B3%D0%B5."
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center justify-center gap-2 bg-primary hover:bg-primary/90 text-primary-foreground text-[17px] md:text-lg font-bold px-8 py-7 rounded-xl w-full md:w-auto uppercase tracking-wide transition-colors"
             >
-              <Phone className="w-5 h-5 mr-2" />
+              <Send className="w-5 h-5" />
               ЗАПИСАТЬСЯ НА КОНСУЛЬТАЦИЮ
-            </Button>
+            </a>
           </div>
         </div>
       </section>
@@ -322,7 +328,9 @@ const Index = () => {
         <div className="max-w-6xl mx-auto">
           <div className="flex flex-col md:flex-row items-center justify-between gap-4">
             <div className="flex items-center gap-2.5">
-              <img src={logoImg} alt="Dental Vietnam" className="w-8 h-8 rounded-lg" width={32} height={32} loading="lazy" />
+              <div className="w-9 h-9 rounded-full bg-white flex items-center justify-center">
+                <img src={logoImg} alt="Dental Vietnam" className="w-7 h-7 rounded-full object-contain" width={28} height={28} loading="lazy" />
+              </div>
               <p className="text-lg font-bold uppercase tracking-wide">Dental Vietnam</p>
             </div>
             <div className="flex items-center gap-4 text-sm opacity-70">
