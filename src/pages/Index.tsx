@@ -4,6 +4,7 @@ import evgeniaPhoto from "@/assets/evgenia.jpg";
 import veneersImg from "@/assets/veneers.jpg";
 import crownsImg from "@/assets/crowns.jpg";
 import implantImg from "@/assets/implant.jpg";
+import logoImg from "@/assets/logo.png";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Car, Hotel, Languages, Ship, Star, Phone, Plane, UserCheck, MessageCircle, Send } from "lucide-react";
@@ -19,11 +20,14 @@ const Index = () => {
   return (
     <div className="min-h-screen w-full font-['Inter',sans-serif] overflow-x-hidden">
       {/* Navigation */}
-      <nav className="sticky top-0 z-50 bg-[hsl(210,60%,25%)] text-white">
-        <div className="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between">
-          <span className="text-lg md:text-xl font-extrabold tracking-tight uppercase">
-            DENTAL VIETNAM
-          </span>
+      <nav className="sticky top-0 z-50 bg-[hsl(210,55%,18%)] text-white">
+        <div className="max-w-6xl mx-auto px-4 py-2.5 flex items-center justify-between">
+          <div className="flex items-center gap-2.5">
+            <img src={logoImg} alt="Dental Vietnam" className="w-9 h-9 rounded-lg" width={36} height={36} />
+            <span className="text-base md:text-lg font-extrabold tracking-tight uppercase">
+              DENTAL VIETNAM
+            </span>
+          </div>
           <div className="hidden md:flex items-center gap-6 text-sm font-medium opacity-90">
             <a href="#hero" className="hover:opacity-100 transition-opacity">Главная</a>
             <button onClick={scrollToServices} className="hover:opacity-100 transition-opacity">Услуги</button>
@@ -39,7 +43,7 @@ const Index = () => {
         </div>
       </nav>
 
-      {/* Hero Section — darkened overlay for readability */}
+      {/* Hero Section — rich dark overlay restored */}
       <section id="hero" className="relative min-h-[70vh] md:min-h-[80vh] w-full overflow-hidden">
         <img
           src={heroImage}
@@ -48,17 +52,17 @@ const Index = () => {
           width={1920}
           height={1080}
         />
-        <div className="absolute inset-0 bg-gradient-to-b md:bg-gradient-to-r from-[hsl(210,20%,85%,0.95)] via-[hsl(210,15%,88%,0.85)] to-[hsl(210,10%,92%,0.40)] md:from-[hsl(210,20%,85%,0.96)] md:via-[hsl(210,15%,88%,0.82)] md:to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-b md:bg-gradient-to-r from-[hsl(210,40%,18%,0.92)] via-[hsl(210,35%,22%,0.82)] to-[hsl(210,20%,30%,0.25)] md:from-[hsl(210,40%,18%,0.94)] md:via-[hsl(210,35%,22%,0.78)] md:to-transparent" />
 
         <div className="relative z-10 min-h-[70vh] md:min-h-[80vh] flex flex-col justify-end md:justify-center px-5 md:px-12 pb-8 md:pb-0 max-w-6xl mx-auto">
           <div className="max-w-xl">
-            <h1 className="font-['Playfair_Display',serif] text-[26px] sm:text-3xl md:text-[44px] font-extrabold leading-[1.15] text-[#2F353B] mb-3 md:mb-5 tracking-tight">
+            <h1 className="font-['Playfair_Display',serif] text-[26px] sm:text-3xl md:text-[44px] font-extrabold leading-[1.15] text-white mb-3 md:mb-5 tracking-tight">
               Новая улыбка в Халонге:
               <br />
-              <span className="text-primary">в 3 раза доступнее, чем в России</span>
+              <span className="text-[hsl(38,65%,60%)]">в 3 раза доступнее, чем в России</span>
             </h1>
 
-            <p className="text-[17px] md:text-lg text-[#2F353B]/75 mb-5 leading-relaxed max-w-md">
+            <p className="text-[17px] md:text-lg text-white/80 mb-5 leading-relaxed max-w-md">
               Профессиональный трансфер из аэропорта и полное русскоязычное сопровождение от наших координаторов.
             </p>
 
@@ -134,7 +138,7 @@ const Index = () => {
                 </p>
                 <div className="bg-muted/60 rounded-lg p-4 mb-3">
                   <p className="text-[15px] text-foreground font-medium">
-                    Цена после бесплатной консультации
+                    Цена рассчитывается после бесплатной консультации
                   </p>
                 </div>
                 <Button variant="outline" className="w-full gap-2 text-primary border-primary/30 hover:bg-primary/5 py-5 text-[15px] font-semibold">
@@ -146,7 +150,7 @@ const Index = () => {
 
             {/* Implants */}
             <Card className="bg-card border-border shadow-md overflow-hidden">
-              <div className="aspect-[3/2] overflow-hidden bg-white flex items-center justify-center">
+              <div className="aspect-[3/2] overflow-hidden bg-[hsl(210,10%,96%)] flex items-center justify-center">
                 <img src={implantImg} alt="Имплантация — восстановление зубов" className="w-full h-full object-contain" loading="lazy" width={768} height={512} />
               </div>
               <CardContent className="p-5 md:p-6">
@@ -233,25 +237,25 @@ const Index = () => {
       </section>
 
       {/* Team — compact coordinator cards (scaled down 70%) */}
-      <section id="team" className="py-10 md:py-14 px-4 md:px-6 bg-muted/30">
-        <div className="max-w-3xl mx-auto">
-          <h2 className="font-['Playfair_Display',serif] text-[20px] md:text-2xl font-bold text-foreground mb-6 text-center">
+      <section id="team" className="py-8 md:py-12 px-4 md:px-6 bg-muted/30">
+        <div className="max-w-2xl mx-auto">
+          <h2 className="font-['Playfair_Display',serif] text-[18px] md:text-xl font-bold text-foreground mb-5 text-center">
             Наши координаторы
           </h2>
-          <div className="grid grid-cols-2 gap-4">
+          <div className="grid grid-cols-2 gap-3">
             {/* Uliana */}
             <Card className="bg-card border-border shadow-sm overflow-hidden">
               <CardContent className="p-0">
-                <div className="aspect-square overflow-hidden max-h-[180px] md:max-h-[220px]">
+                <div className="aspect-square overflow-hidden max-h-[140px] md:max-h-[170px]">
                   <img src={ulianaPhoto} alt="Ведущий координатор Ульяна" className="w-full h-full object-cover object-top" loading="lazy" />
                 </div>
-                <div className="p-3 md:p-4">
-                  <h3 className="font-['Playfair_Display',serif] text-[14px] md:text-[16px] font-bold text-foreground leading-tight mb-0.5">
+                <div className="p-2.5 md:p-3">
+                  <h3 className="font-['Playfair_Display',serif] text-[13px] md:text-[14px] font-bold text-foreground leading-tight mb-0.5">
                     Ульяна
                   </h3>
-                  <p className="text-xs text-primary font-medium mb-1">Ведущий координатор</p>
-                  <p className="text-xs text-muted-foreground leading-snug">
-                    Управление пребыванием, логистика и перевод в клинике.
+                  <p className="text-[11px] text-primary font-medium mb-1">Ведущий координатор и переводчик</p>
+                  <p className="text-[11px] text-muted-foreground leading-snug">
+                    Управляющая вашим пребыванием, логистикой и переводом в клинике.
                   </p>
                 </div>
               </CardContent>
@@ -260,16 +264,16 @@ const Index = () => {
             {/* Evgenia */}
             <Card className="bg-card border-border shadow-sm overflow-hidden">
               <CardContent className="p-0">
-                <div className="aspect-square overflow-hidden max-h-[180px] md:max-h-[220px]">
+                <div className="aspect-square overflow-hidden max-h-[140px] md:max-h-[170px]">
                   <img src={evgeniaPhoto} alt="Координатор Евгения" className="w-full h-full object-cover object-top" loading="lazy" />
                 </div>
-                <div className="p-3 md:p-4">
-                  <h3 className="font-['Playfair_Display',serif] text-[14px] md:text-[16px] font-bold text-foreground leading-tight mb-0.5">
+                <div className="p-2.5 md:p-3">
+                  <h3 className="font-['Playfair_Display',serif] text-[13px] md:text-[14px] font-bold text-foreground leading-tight mb-0.5">
                     Евгения
                   </h3>
-                  <p className="text-xs text-primary font-medium mb-1">Координатор</p>
-                  <p className="text-xs text-muted-foreground leading-snug">
-                    Комфорт и поддержка на протяжении всего лечения.
+                  <p className="text-[11px] text-primary font-medium mb-1">Координатор</p>
+                  <p className="text-[11px] text-muted-foreground leading-snug">
+                    Поддержка и комфорт на каждом этапе вашего лечения.
                   </p>
                 </div>
               </CardContent>
@@ -314,10 +318,13 @@ const Index = () => {
       </section>
 
       {/* Footer */}
-      <footer className="py-8 px-4 md:px-6 bg-[hsl(210,60%,20%)] text-white">
+      <footer className="py-8 px-4 md:px-6 bg-[hsl(210,55%,15%)] text-white">
         <div className="max-w-6xl mx-auto">
           <div className="flex flex-col md:flex-row items-center justify-between gap-4">
-            <p className="text-lg font-bold uppercase tracking-wide">Dental Vietnam</p>
+            <div className="flex items-center gap-2.5">
+              <img src={logoImg} alt="Dental Vietnam" className="w-8 h-8 rounded-lg" width={32} height={32} loading="lazy" />
+              <p className="text-lg font-bold uppercase tracking-wide">Dental Vietnam</p>
+            </div>
             <div className="flex items-center gap-4 text-sm opacity-70">
               <a href="#services" className="hover:opacity-100">Услуги</a>
               <a href="#logistics" className="hover:opacity-100">Сопровождение</a>
