@@ -26,13 +26,13 @@ const TELEGRAM_BOT = "https://t.me/dental_vietnam_bot?start=consult";
 const TELEGRAM_CONTACT = "https://t.me/dental_vietnam_bot";
 const WHATSAPP_LINK = "https://wa.me/79041274825";
 
-type LangCode = "ru" | "en" | "fr" | "vi";
+type LangCode = "ru" | "en" | "fr" | "enAU";
 
 const LANGUAGES: { code: LangCode; label: string; short: string }[] = [
   { code: "ru", label: "Русский", short: "RU" },
   { code: "en", label: "English", short: "EN" },
   { code: "fr", label: "Français", short: "FR" },
-  { code: "vi", label: "Tiếng Việt", short: "VI" },
+  { code: "enAU", label: "English (Australia)", short: "AU" },
 ];
 
 type Dict = {
