@@ -7,7 +7,15 @@ import implantImg from "@/assets/implant.jpg";
 import logoImg from "@/assets/logo.png";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
-import { Car, Hotel, Languages, Ship, Star, Phone, Plane, UserCheck, MessageCircle, Send, ChevronLeft, ChevronRight } from "lucide-react";
+import { Car, Hotel, Languages, Ship, Star, Phone, Plane, UserCheck, MessageCircle, Send, ChevronLeft, ChevronRight, Settings } from "lucide-react";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuLabel,
+  DropdownMenuSeparator,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
 import { useRef, useState } from "react";
 
 // Use ?start= so the bot opens with a "START" button (Telegram bot deep-link).
@@ -52,6 +60,37 @@ const StarRating = ({ rating }: { rating: number }) => (
   </div>
 );
 
+const LanguageMenu = () => (
+  <DropdownMenu>
+    <DropdownMenuTrigger
+      aria-label="Выбор языка / Settings"
+      className="inline-flex items-center gap-1.5 px-2.5 py-1.5 rounded-full border border-white/25 bg-white/5 hover:bg-white/15 hover:border-white/50 transition-colors text-white text-[12px] md:text-[13px] font-medium focus:outline-none focus-visible:ring-2 focus-visible:ring-white/60"
+    >
+      <Settings className="w-3.5 h-3.5" />
+      <span className="hidden sm:inline">Язык</span>
+    </DropdownMenuTrigger>
+    <DropdownMenuContent align="end" className="w-52">
+      <DropdownMenuLabel className="flex items-center gap-2 text-foreground">
+        <Languages className="w-4 h-4 text-primary" />
+        Выберите язык
+      </DropdownMenuLabel>
+      <DropdownMenuSeparator />
+      {LANGUAGES.map((lang) => (
+        <DropdownMenuItem key={lang.code} asChild>
+          <a
+            href={`https://t.me/dental_vietnam_bot?start=${lang.botParam}`}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="cursor-pointer text-[14px] font-medium"
+          >
+            {lang.label}
+          </a>
+        </DropdownMenuItem>
+      ))}
+    </DropdownMenuContent>
+  </DropdownMenu>
+);
+
 const Index = () => {
   const servicesRef = useRef<HTMLDivElement>(null);
   const carouselRef = useRef<HTMLDivElement>(null);
@@ -82,17 +121,19 @@ const Index = () => {
               DENTAL VIETNAM
             </span>
           </div>
-          <div className="hidden md:flex items-center gap-6 text-sm font-medium opacity-90">
-            <a href="#hero" className="hover:opacity-100 transition-opacity">Главная</a>
-            <button onClick={scrollToServices} className="hover:opacity-100 transition-opacity">Услуги</button>
-            <a href="#logistics" className="hover:opacity-100 transition-opacity">Сопровождение</a>
-            <a href="#team" className="hover:opacity-100 transition-opacity">Команда</a>
-            <a href="#testimonials" className="hover:opacity-100 transition-opacity">Отзывы</a>
+          <div className="hidden md:flex items-center gap-6 text-sm font-medium">
+            <a href="#hero" className="opacity-90 hover:opacity-100 transition-opacity">Главная</a>
+            <button onClick={scrollToServices} className="opacity-90 hover:opacity-100 transition-opacity">Услуги</button>
+            <a href="#logistics" className="opacity-90 hover:opacity-100 transition-opacity">Сопровождение</a>
+            <a href="#team" className="opacity-90 hover:opacity-100 transition-opacity">Команда</a>
+            <a href="#testimonials" className="opacity-90 hover:opacity-100 transition-opacity">Отзывы</a>
+            <LanguageMenu />
           </div>
-          <div className="md:hidden flex items-center gap-4 text-xs font-medium">
+          <div className="md:hidden flex items-center gap-3 text-xs font-medium">
             <button onClick={scrollToServices} className="opacity-90 hover:opacity-100">Услуги</button>
             <a href="#team" className="opacity-90 hover:opacity-100">Команда</a>
             <a href="#testimonials" className="opacity-90 hover:opacity-100">Отзывы</a>
+            <LanguageMenu />
           </div>
         </div>
       </nav>
@@ -154,29 +195,6 @@ const Index = () => {
               <p className="text-[15px] md:text-base font-extrabold text-primary uppercase tracking-wide">
                 СКИДКА 40% ДЛЯ ВСЕХ ПАЦИЕНТОВ ОТ 35 ЛЕТ
               </p>
-            </div>
-
-            {/* Language selector — each opens the bot with chosen language */}
-            <div className="flex flex-col items-center gap-2.5">
-              <div className="flex items-center gap-1.5 text-muted-foreground">
-                <Languages className="w-4 h-4" />
-                <span className="text-[12px] md:text-[13px] uppercase tracking-wider font-medium">
-                  Консультация на вашем языке
-                </span>
-              </div>
-              <div className="flex flex-wrap justify-center gap-2">
-                {LANGUAGES.map((lang) => (
-                  <a
-                    key={lang.code}
-                    href={`https://t.me/dental_vietnam_bot?start=${lang.botParam}`}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center px-4 py-2 rounded-full border border-border bg-card hover:border-primary hover:bg-primary/5 transition-colors text-[14px] font-medium text-foreground"
-                  >
-                    {lang.label}
-                  </a>
-                ))}
-              </div>
             </div>
           </div>
 
