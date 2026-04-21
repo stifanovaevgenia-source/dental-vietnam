@@ -7,7 +7,15 @@ import implantImg from "@/assets/implant.jpg";
 import logoImg from "@/assets/logo.png";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
-import { Car, Hotel, Languages, Ship, Star, Phone, Plane, UserCheck, MessageCircle, Send, ChevronLeft, ChevronRight } from "lucide-react";
+import { Car, Hotel, Languages, Ship, Star, Phone, Plane, UserCheck, MessageCircle, Send, ChevronLeft, ChevronRight, Settings } from "lucide-react";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuLabel,
+  DropdownMenuSeparator,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
 import { useRef, useState } from "react";
 
 // Use ?start= so the bot opens with a "START" button (Telegram bot deep-link).
