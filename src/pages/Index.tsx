@@ -90,17 +90,19 @@ const Index = () => {
               DENTAL VIETNAM
             </span>
           </div>
-          <div className="hidden md:flex items-center gap-6 text-sm font-medium opacity-90">
-            <a href="#hero" className="hover:opacity-100 transition-opacity">Главная</a>
-            <button onClick={scrollToServices} className="hover:opacity-100 transition-opacity">Услуги</button>
-            <a href="#logistics" className="hover:opacity-100 transition-opacity">Сопровождение</a>
-            <a href="#team" className="hover:opacity-100 transition-opacity">Команда</a>
-            <a href="#testimonials" className="hover:opacity-100 transition-opacity">Отзывы</a>
+          <div className="hidden md:flex items-center gap-6 text-sm font-medium">
+            <a href="#hero" className="opacity-90 hover:opacity-100 transition-opacity">Главная</a>
+            <button onClick={scrollToServices} className="opacity-90 hover:opacity-100 transition-opacity">Услуги</button>
+            <a href="#logistics" className="opacity-90 hover:opacity-100 transition-opacity">Сопровождение</a>
+            <a href="#team" className="opacity-90 hover:opacity-100 transition-opacity">Команда</a>
+            <a href="#testimonials" className="opacity-90 hover:opacity-100 transition-opacity">Отзывы</a>
+            <LanguageMenu />
           </div>
-          <div className="md:hidden flex items-center gap-4 text-xs font-medium">
+          <div className="md:hidden flex items-center gap-3 text-xs font-medium">
             <button onClick={scrollToServices} className="opacity-90 hover:opacity-100">Услуги</button>
             <a href="#team" className="opacity-90 hover:opacity-100">Команда</a>
             <a href="#testimonials" className="opacity-90 hover:opacity-100">Отзывы</a>
+            <LanguageMenu />
           </div>
         </div>
       </nav>
