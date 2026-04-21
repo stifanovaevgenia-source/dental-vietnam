@@ -90,24 +90,6 @@ const LanguageMenu = () => (
     </DropdownMenuContent>
   </DropdownMenu>
 );
-  <div className="flex items-center gap-1">
-    <div className="flex gap-0.5">
-      {Array.from({ length: 5 }).map((_, i) => (
-        <Star
-          key={i}
-          className={`w-3 h-3 ${
-            i < Math.floor(rating)
-              ? "fill-primary text-primary"
-              : i < rating
-              ? "fill-primary/50 text-primary"
-              : "text-muted-foreground/30"
-          }`}
-        />
-      ))}
-    </div>
-    <span className="text-[11px] font-bold text-foreground ml-0.5">{rating}</span>
-  </div>
-);
 
 const Index = () => {
   const servicesRef = useRef<HTMLDivElement>(null);
