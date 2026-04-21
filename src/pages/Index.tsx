@@ -349,15 +349,15 @@ const Index = () => {
       { name: "Elena R.", text: "Facettes de rêve ! Je souris sans gêne. Merci à l'équipe Dental Vietnam pour cette nouvelle vie.", date: "Janvier 2026" },
       { name: "Sergey T.", text: "Organisation parfaite, du transfert à la clinique. Je recommande vivement.", date: "Mars 2026" },
     ],
-    enAU: [
-      { name: "Sarah M., Sydney", text: "Brilliant service! Ulyana sorted my hotel check-in and came with me to every appointment. The veneers look stunning.", date: "March 2026" },
-      { name: "James W., Melbourne", text: "Implant procedure was painless. Saved well over 60% compared to quotes back home in Australia.", date: "February 2026" },
-      { name: "Emma R., Brisbane", text: "Combined a holiday with treatment. Ha Long Bay is breathtaking, and my smile is now perfect.", date: "January 2026" },
-      { name: "Liam P., Perth", text: "Crowns done in two visits. Quality on par with the best clinics in Sydney, at a fraction of the price.", date: "March 2026" },
-      { name: "Olivia C., Adelaide", text: "Coordinator Evgenia was with me every step of the way. Felt right at home despite being overseas.", date: "December 2025" },
-      { name: "Noah T., Gold Coast", text: "Came in for four implants. Everything went perfectly — the dentists are true pros.", date: "February 2026" },
-      { name: "Ava H., Auckland", text: "Dream veneers! I smile freely again. Thanks to the Dental Vietnam team for a fresh start.", date: "January 2026" },
-      { name: "Jack D., Canberra", text: "Top-notch organisation from airport pickup to clinic. Highly recommend for any Aussie considering dental tourism.", date: "March 2026" },
+    de: [
+      { name: "Anna M., Berlin", text: "Hervorragender Service! Ulyana hat mir beim Check-in geholfen und mich zu jedem Termin begleitet. Die Veneers sehen fantastisch aus.", date: "März 2026" },
+      { name: "Lukas W., München", text: "Die Implantation verlief schmerzfrei. Über 60% gespart im Vergleich zu Angeboten in Deutschland.", date: "Februar 2026" },
+      { name: "Sophie R., Hamburg", text: "Urlaub und Behandlung kombiniert. Die Halong-Bucht ist atemberaubend, meine Zähne sind perfekt.", date: "Januar 2026" },
+      { name: "Tobias L., Köln", text: "Kronen in zwei Terminen erledigt. Qualität wie in den besten europäischen Kliniken — zu einem Bruchteil des Preises.", date: "März 2026" },
+      { name: "Julia V., Frankfurt", text: "Koordinatorin Evgenia war in jeder Phase an meiner Seite. Habe mich wie zu Hause gefühlt.", date: "Dezember 2025" },
+      { name: "Markus H., Stuttgart", text: "Vier Implantate gesetzt — alles perfekt. Die Ärzte sind echte Profis.", date: "Februar 2026" },
+      { name: "Lisa K., Wien", text: "Traum-Veneers! Ich lächle wieder ohne Hemmungen. Danke an das Dental-Vietnam-Team.", date: "Januar 2026" },
+      { name: "Sebastian T., Zürich", text: "Top organisiert vom Transfer bis zur Klinik. Klare Empfehlung für alle, die eine Behandlung im Ausland erwägen.", date: "März 2026" },
     ],
   };
   const testimonials = testimonialsByLang[lang];
