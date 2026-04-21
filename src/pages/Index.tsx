@@ -150,10 +150,33 @@ const Index = () => {
             <p className="text-[16px] text-muted-foreground max-w-lg mx-auto mb-4">
               Стоматология мирового уровня по доступным ценам
             </p>
-            <div className="inline-block border border-primary/40 bg-primary/10 rounded-lg px-5 py-2.5">
+            <div className="inline-block border border-primary/40 bg-primary/10 rounded-lg px-5 py-2.5 mb-5">
               <p className="text-[15px] md:text-base font-extrabold text-primary uppercase tracking-wide">
                 СКИДКА 40% ДЛЯ ВСЕХ ПАЦИЕНТОВ ОТ 35 ЛЕТ
               </p>
+            </div>
+
+            {/* Language selector — each opens the bot with chosen language */}
+            <div className="flex flex-col items-center gap-2.5">
+              <div className="flex items-center gap-1.5 text-muted-foreground">
+                <Languages className="w-4 h-4" />
+                <span className="text-[12px] md:text-[13px] uppercase tracking-wider font-medium">
+                  Консультация на вашем языке
+                </span>
+              </div>
+              <div className="flex flex-wrap justify-center gap-2">
+                {LANGUAGES.map((lang) => (
+                  <a
+                    key={lang.code}
+                    href={`https://t.me/dental_vietnam_bot?start=${lang.botParam}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center px-4 py-2 rounded-full border border-border bg-card hover:border-primary hover:bg-primary/5 transition-colors text-[14px] font-medium text-foreground"
+                  >
+                    {lang.label}
+                  </a>
+                ))}
+              </div>
             </div>
           </div>
 
