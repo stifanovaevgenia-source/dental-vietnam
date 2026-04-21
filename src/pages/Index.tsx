@@ -10,7 +10,16 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Car, Hotel, Languages, Ship, Star, Phone, Plane, UserCheck, MessageCircle, Send, ChevronLeft, ChevronRight } from "lucide-react";
 import { useRef, useState } from "react";
 
-const TELEGRAM_LINK = "https://t.me/dental_vietnam_bot?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5!%20%D0%A5%D0%BE%D1%87%D1%83%20%D0%B7%D0%B0%D0%BF%D0%B8%D1%81%D0%B0%D1%82%D1%8C%D1%81%D1%8F%20%D0%BD%D0%B0%20%D0%BA%D0%BE%D0%BD%D1%81%D1%83%D0%BB%D1%8C%D1%82%D0%B0%D1%86%D0%B8%D1%8E%20%D0%BF%D0%BE%20%D0%BF%D0%BE%D0%B2%D0%BE%D0%B4%D1%83%20%D0%BD%D0%BE%D0%B2%D0%BE%D0%B9%20%D1%83%D0%BB%D1%8B%D0%B1%D0%BA%D0%B8%20%D0%B2%20%D0%A5%D0%B0%D0%BB%D0%BE%D0%BD%D0%B3%D0%B5.";
+// Use ?start= so the bot opens with a "START" button (Telegram bot deep-link).
+// Param value is passed to the bot once user taps START.
+const TELEGRAM_LINK = "https://t.me/dental_vietnam_bot?start=consult";
+
+const LANGUAGES = [
+  { code: "ru", label: "Русский", botParam: "lang_ru" },
+  { code: "en", label: "English", botParam: "lang_en" },
+  { code: "fr", label: "Français", botParam: "lang_fr" },
+  { code: "vi", label: "Tiếng Việt", botParam: "lang_vi" },
+];
 
 const testimonials = [
   { name: "Марина К.", text: "Невероятный сервис! Ульяна помогла с заселением и сопровождала в клинике. Виниры выглядят потрясающе.", date: "Март 2026" },
@@ -141,10 +150,33 @@ const Index = () => {
             <p className="text-[16px] text-muted-foreground max-w-lg mx-auto mb-4">
               Стоматология мирового уровня по доступным ценам
             </p>
-            <div className="inline-block border border-primary/40 bg-primary/10 rounded-lg px-5 py-2.5">
+            <div className="inline-block border border-primary/40 bg-primary/10 rounded-lg px-5 py-2.5 mb-5">
               <p className="text-[15px] md:text-base font-extrabold text-primary uppercase tracking-wide">
                 СКИДКА 40% ДЛЯ ВСЕХ ПАЦИЕНТОВ ОТ 35 ЛЕТ
               </p>
+            </div>
+
+            {/* Language selector — each opens the bot with chosen language */}
+            <div className="flex flex-col items-center gap-2.5">
+              <div className="flex items-center gap-1.5 text-muted-foreground">
+                <Languages className="w-4 h-4" />
+                <span className="text-[12px] md:text-[13px] uppercase tracking-wider font-medium">
+                  Консультация на вашем языке
+                </span>
+              </div>
+              <div className="flex flex-wrap justify-center gap-2">
+                {LANGUAGES.map((lang) => (
+                  <a
+                    key={lang.code}
+                    href={`https://t.me/dental_vietnam_bot?start=${lang.botParam}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center px-4 py-2 rounded-full border border-border bg-card hover:border-primary hover:bg-primary/5 transition-colors text-[14px] font-medium text-foreground"
+                  >
+                    {lang.label}
+                  </a>
+                ))}
+              </div>
             </div>
           </div>
 
