@@ -26,13 +26,13 @@ const TELEGRAM_BOT = "https://t.me/dental_vietnam_bot?start=consult";
 const TELEGRAM_CONTACT = "https://t.me/dental_vietnam_bot";
 const WHATSAPP_LINK = "https://wa.me/79041274825";
 
-type LangCode = "ru" | "en" | "fr" | "enAU";
+type LangCode = "ru" | "en" | "fr" | "de";
 
 const LANGUAGES: { code: LangCode; label: string; short: string }[] = [
   { code: "ru", label: "Русский", short: "RU" },
   { code: "en", label: "English", short: "EN" },
   { code: "fr", label: "Français", short: "FR" },
-  { code: "enAU", label: "English (Australia)", short: "AU" },
+  { code: "de", label: "Deutsch", short: "DE" },
 ];
 
 type Dict = {
@@ -199,46 +199,46 @@ const DICTIONARIES: Record<LangCode, Dict> = {
     testimonials: { heading: "Avis de nos patients", swipeHint: "Glissez pour voir plus", leaveReview: "LAISSER UN AVIS" },
     footer: { telegram: "CONTACTER SUR TELEGRAM", whatsapp: "CONTACTER SUR WHATSAPP" },
   },
-  enAU: {
-    settings: "Settings",
-    language: "Language",
-    nav: { home: "Home", services: "Services", logistics: "Concierge", team: "Team", testimonials: "Reviews" },
+  de: {
+    settings: "Einstellungen",
+    language: "Sprache",
+    nav: { home: "Startseite", services: "Leistungen", logistics: "Begleitung", team: "Team", testimonials: "Bewertungen" },
     hero: {
-      title1: "A new smile in Ha Long Bay:",
-      title2: "3× more affordable than back in Australia",
-      subtitle: "Professional airport transfer and full English-speaking support from our coordinators — Aussie travellers welcome.",
-      discount: "40% OFF FOR EVERYONE AGED 35+",
-      cta: "BOOK A CONSULTATION",
+      title1: "Ein neues Lächeln in der Halong-Bucht:",
+      title2: "3× günstiger als in Deutschland",
+      subtitle: "Professioneller Flughafentransfer und vollständige deutschsprachige Betreuung durch unsere Koordinatoren.",
+      discount: "40% RABATT FÜR ALLE AB 35 JAHREN",
+      cta: "BERATUNG VEREINBAREN",
     },
     services: {
-      heading: "Services & Pricing",
-      subheading: "World-class dentistry at a fraction of Aussie prices",
-      discountBadge: "40% DISCOUNT FOR ALL PATIENTS AGED 35+",
-      veneers: { title: "Veneers (smile-zone aesthetics)", desc: "Ultra-thin ceramic veneers for a flawless, natural-looking result.", oldPrice: "from 167,000,000 VND", price: "from 100,000,000 VND", per: "(for the smile zone)" },
-      crowns: { title: "Crowns (tooth restoration)", desc: "High-strength zirconia and full-ceramic crowns.", priceNote: "Final quote provided after a complimentary consultation", cta: "Book a consultation" },
-      implants: { title: "Implants (replacement of missing teeth)", desc: "Premium implants from leading global manufacturers.", oldPrice: "from 20,000,000 VND", price: "from 12,000,000 VND", per: "(per single implant)" },
-      cta: "BOOK A CONSULTATION",
+      heading: "Leistungen & Preise",
+      subheading: "Zahnmedizin auf Weltniveau zu erschwinglichen Preisen",
+      discountBadge: "40% RABATT FÜR ALLE PATIENTEN AB 35 JAHREN",
+      veneers: { title: "Veneers (Ästhetik der Lächelzone)", desc: "Hauchdünne Keramik-Veneers für ein makellos natürliches Ergebnis.", oldPrice: "ab 167.000.000 VND", price: "ab 100.000.000 VND", per: "(für die Lächelzone)" },
+      crowns: { title: "Kronen (Zahnrestauration)", desc: "Hochfeste Zirkon- und Vollkeramikkronen.", priceNote: "Preis nach kostenloser Beratung", cta: "Beratung vereinbaren" },
+      implants: { title: "Implantate (Ersatz fehlender Zähne)", desc: "Premium-Implantate führender internationaler Hersteller.", oldPrice: "ab 20.000.000 VND", price: "ab 12.000.000 VND", per: "(pro Implantat)" },
+      cta: "BERATUNG VEREINBAREN",
     },
     logistics: {
-      heading: "Your dental holiday, sorted from start to finish",
-      subheading: "Looked after at every step",
-      meet: { title: "Arrival", text: "A professional driver with a name sign meets you at the airport and takes you straight to your hotel." },
-      guide: { title: "Your guide", text: "In Ha Long, coordinator Ulyana looks after check-in, a local SIM, clinic translation and tips for tours." },
-      farewell: { title: "Departure", text: "On your flight day the driver gets you back to the airport in plenty of time." },
+      heading: "Ihr Weg zum neuen Lächeln — bis ins Detail organisiert",
+      subheading: "Betreuung in jeder Phase",
+      meet: { title: "Ankunft", text: "Am Flughafen erwartet Sie ein professioneller Fahrer mit Namensschild und bringt Sie direkt zum Hotel." },
+      guide: { title: "Ihre Begleitung", text: "In Halong empfängt Sie Koordinatorin Ulyana — Hilfe beim Check-in, lokale SIM, Übersetzung in der Klinik und Ausflugstipps." },
+      farewell: { title: "Abreise", text: "Am Abflugtag bringt der Fahrer Sie pünktlich zurück zum Flughafen." },
     },
     concierge: {
-      heading: "Full support throughout your trip",
-      stay: { title: "Accommodation", text: "Help choosing and booking a hotel or apartment to suit your budget." },
-      clinic: { title: "At the clinic", text: "Personal assistance and a professional interpreter at every appointment." },
-      leisure: { title: "Leisure", text: "Help organising tours around Ha Long Bay and the surrounding area." },
+      heading: "Vollständige Betreuung Ihrer Reise",
+      stay: { title: "Unterkunft", text: "Auswahl und Buchung von Hotel oder Apartment passend zu Ihrem Budget." },
+      clinic: { title: "In der Klinik", text: "Persönliche Begleitung und professioneller Dolmetscherdienst in der Klinik." },
+      leisure: { title: "Freizeit", text: "Hilfe bei der Organisation von Ausflügen rund um die Halong-Bucht." },
     },
     team: {
-      heading: "Our coordinators",
-      uliana: { name: "Ulyana", role: "Lead coordinator & interpreter", desc: "Manages your stay, logistics and clinic translation." },
-      evgenia: { name: "Evgenia", role: "Coordinator", desc: "Comfort and support at every stage of your treatment." },
+      heading: "Unsere Koordinatorinnen",
+      uliana: { name: "Ulyana", role: "Leitende Koordinatorin & Dolmetscherin", desc: "Verwaltet Ihren Aufenthalt, die Logistik und die Übersetzung in der Klinik." },
+      evgenia: { name: "Evgenia", role: "Koordinatorin", desc: "Komfort und Unterstützung in jeder Behandlungsphase." },
     },
-    testimonials: { heading: "What our patients say", swipeHint: "Swipe to browse", leaveReview: "LEAVE A REVIEW" },
-    footer: { telegram: "CONTACT US ON TELEGRAM", whatsapp: "CONTACT US ON WHATSAPP" },
+    testimonials: { heading: "Was unsere Patienten sagen", swipeHint: "Wischen zum Blättern", leaveReview: "BEWERTUNG ABGEBEN" },
+    footer: { telegram: "AUF TELEGRAM KONTAKTIEREN", whatsapp: "AUF WHATSAPP KONTAKTIEREN" },
   },
 };
 
@@ -268,13 +268,12 @@ const SettingsLanguageMenu = ({
   <DropdownMenu>
     <DropdownMenuTrigger
       aria-label={t.settings}
-      className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full border border-white/30 bg-white/5 hover:bg-white/15 hover:border-white/60 transition-colors text-white text-[12px] md:text-[13px] font-semibold focus:outline-none focus-visible:ring-2 focus-visible:ring-white/70"
+      title={t.settings}
+      className="inline-flex items-center gap-1 px-2 py-1 rounded-full border border-white/25 bg-white/5 hover:bg-white/15 hover:border-white/55 transition-colors text-white text-[11px] font-bold tracking-wider focus:outline-none focus-visible:ring-2 focus-visible:ring-white/70"
     >
       <Settings className="w-3.5 h-3.5" />
-      <span>{t.settings}</span>
-      <span className="text-white/70 font-bold tracking-wider">
-        · {LANGUAGES.find((l) => l.code === lang)?.short}
-      </span>
+      <span>·</span>
+      <span>{LANGUAGES.find((l) => l.code === lang)?.short}</span>
     </DropdownMenuTrigger>
     <DropdownMenuContent align="end" className="w-56 z-50 bg-popover">
       <DropdownMenuLabel className="flex items-center gap-2 text-foreground">
@@ -349,15 +348,15 @@ const Index = () => {
       { name: "Elena R.", text: "Facettes de rêve ! Je souris sans gêne. Merci à l'équipe Dental Vietnam pour cette nouvelle vie.", date: "Janvier 2026" },
       { name: "Sergey T.", text: "Organisation parfaite, du transfert à la clinique. Je recommande vivement.", date: "Mars 2026" },
     ],
-    enAU: [
-      { name: "Sarah M., Sydney", text: "Brilliant service! Ulyana sorted my hotel check-in and came with me to every appointment. The veneers look stunning.", date: "March 2026" },
-      { name: "James W., Melbourne", text: "Implant procedure was painless. Saved well over 60% compared to quotes back home in Australia.", date: "February 2026" },
-      { name: "Emma R., Brisbane", text: "Combined a holiday with treatment. Ha Long Bay is breathtaking, and my smile is now perfect.", date: "January 2026" },
-      { name: "Liam P., Perth", text: "Crowns done in two visits. Quality on par with the best clinics in Sydney, at a fraction of the price.", date: "March 2026" },
-      { name: "Olivia C., Adelaide", text: "Coordinator Evgenia was with me every step of the way. Felt right at home despite being overseas.", date: "December 2025" },
-      { name: "Noah T., Gold Coast", text: "Came in for four implants. Everything went perfectly — the dentists are true pros.", date: "February 2026" },
-      { name: "Ava H., Auckland", text: "Dream veneers! I smile freely again. Thanks to the Dental Vietnam team for a fresh start.", date: "January 2026" },
-      { name: "Jack D., Canberra", text: "Top-notch organisation from airport pickup to clinic. Highly recommend for any Aussie considering dental tourism.", date: "March 2026" },
+    de: [
+      { name: "Anna M., Berlin", text: "Hervorragender Service! Ulyana hat mir beim Check-in geholfen und mich zu jedem Termin begleitet. Die Veneers sehen fantastisch aus.", date: "März 2026" },
+      { name: "Lukas W., München", text: "Die Implantation verlief schmerzfrei. Über 60% gespart im Vergleich zu Angeboten in Deutschland.", date: "Februar 2026" },
+      { name: "Sophie R., Hamburg", text: "Urlaub und Behandlung kombiniert. Die Halong-Bucht ist atemberaubend, meine Zähne sind perfekt.", date: "Januar 2026" },
+      { name: "Tobias L., Köln", text: "Kronen in zwei Terminen erledigt. Qualität wie in den besten europäischen Kliniken — zu einem Bruchteil des Preises.", date: "März 2026" },
+      { name: "Julia V., Frankfurt", text: "Koordinatorin Evgenia war in jeder Phase an meiner Seite. Habe mich wie zu Hause gefühlt.", date: "Dezember 2025" },
+      { name: "Markus H., Stuttgart", text: "Vier Implantate gesetzt — alles perfekt. Die Ärzte sind echte Profis.", date: "Februar 2026" },
+      { name: "Lisa K., Wien", text: "Traum-Veneers! Ich lächle wieder ohne Hemmungen. Danke an das Dental-Vietnam-Team.", date: "Januar 2026" },
+      { name: "Sebastian T., Zürich", text: "Top organisiert vom Transfer bis zur Klinik. Klare Empfehlung für alle, die eine Behandlung im Ausland erwägen.", date: "März 2026" },
     ],
   };
   const testimonials = testimonialsByLang[lang];
