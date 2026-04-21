@@ -349,15 +349,15 @@ const Index = () => {
       { name: "Elena R.", text: "Facettes de rêve ! Je souris sans gêne. Merci à l'équipe Dental Vietnam pour cette nouvelle vie.", date: "Janvier 2026" },
       { name: "Sergey T.", text: "Organisation parfaite, du transfert à la clinique. Je recommande vivement.", date: "Mars 2026" },
     ],
-    vi: [
-      { name: "Marina K.", text: "Dịch vụ tuyệt vời! Ulyana hỗ trợ nhận phòng và đi cùng tôi đến phòng khám. Veneer trông tuyệt đẹp.", date: "Tháng 3 2026" },
-      { name: "Alexey D.", text: "Cấy implant không đau. Tôi tiết kiệm hơn 60% so với phòng khám ở quê nhà.", date: "Tháng 2 2026" },
-      { name: "Olga S.", text: "Vừa nghỉ dưỡng vừa điều trị. Vịnh Hạ Long tuyệt đẹp, răng giờ rất hoàn hảo.", date: "Tháng 1 2026" },
-      { name: "Dmitry L.", text: "Mão răng hoàn thành trong hai lần hẹn. Chất lượng ngang phòng khám châu Âu, giá rẻ hơn nhiều.", date: "Tháng 3 2026" },
-      { name: "Natalia V.", text: "Điều phối viên Evgenia luôn bên cạnh tôi. Cảm giác như ở nhà dù đang ở nước ngoài.", date: "Tháng 12 2025" },
-      { name: "Igor M.", text: "Tôi đến để cấy bốn implant. Mọi thứ hoàn hảo — bác sĩ rất chuyên nghiệp.", date: "Tháng 2 2026" },
-      { name: "Elena R.", text: "Veneer trong mơ! Tôi cười tự tin trở lại. Cảm ơn đội ngũ Dental Vietnam.", date: "Tháng 1 2026" },
-      { name: "Sergey T.", text: "Tổ chức xuất sắc từ đưa đón đến phòng khám. Rất đáng giới thiệu.", date: "Tháng 3 2026" },
+    enAU: [
+      { name: "Sarah M., Sydney", text: "Brilliant service! Ulyana sorted my hotel check-in and came with me to every appointment. The veneers look stunning.", date: "March 2026" },
+      { name: "James W., Melbourne", text: "Implant procedure was painless. Saved well over 60% compared to quotes back home in Australia.", date: "February 2026" },
+      { name: "Emma R., Brisbane", text: "Combined a holiday with treatment. Ha Long Bay is breathtaking, and my smile is now perfect.", date: "January 2026" },
+      { name: "Liam P., Perth", text: "Crowns done in two visits. Quality on par with the best clinics in Sydney, at a fraction of the price.", date: "March 2026" },
+      { name: "Olivia C., Adelaide", text: "Coordinator Evgenia was with me every step of the way. Felt right at home despite being overseas.", date: "December 2025" },
+      { name: "Noah T., Gold Coast", text: "Came in for four implants. Everything went perfectly — the dentists are true pros.", date: "February 2026" },
+      { name: "Ava H., Auckland", text: "Dream veneers! I smile freely again. Thanks to the Dental Vietnam team for a fresh start.", date: "January 2026" },
+      { name: "Jack D., Canberra", text: "Top-notch organisation from airport pickup to clinic. Highly recommend for any Aussie considering dental tourism.", date: "March 2026" },
     ],
   };
   const testimonials = testimonialsByLang[lang];
