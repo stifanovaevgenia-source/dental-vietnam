@@ -268,13 +268,12 @@ const SettingsLanguageMenu = ({
   <DropdownMenu>
     <DropdownMenuTrigger
       aria-label={t.settings}
-      className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full border border-white/30 bg-white/5 hover:bg-white/15 hover:border-white/60 transition-colors text-white text-[12px] md:text-[13px] font-semibold focus:outline-none focus-visible:ring-2 focus-visible:ring-white/70"
+      title={t.settings}
+      className="inline-flex items-center gap-1 px-2 py-1 rounded-full border border-white/25 bg-white/5 hover:bg-white/15 hover:border-white/55 transition-colors text-white text-[11px] font-bold tracking-wider focus:outline-none focus-visible:ring-2 focus-visible:ring-white/70"
     >
       <Settings className="w-3.5 h-3.5" />
-      <span>{t.settings}</span>
-      <span className="text-white/70 font-bold tracking-wider">
-        · {LANGUAGES.find((l) => l.code === lang)?.short}
-      </span>
+      <span>·</span>
+      <span>{LANGUAGES.find((l) => l.code === lang)?.short}</span>
     </DropdownMenuTrigger>
     <DropdownMenuContent align="end" className="w-56 z-50 bg-popover">
       <DropdownMenuLabel className="flex items-center gap-2 text-foreground">
