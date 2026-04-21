@@ -60,6 +60,55 @@ const StarRating = ({ rating }: { rating: number }) => (
   </div>
 );
 
+const LanguageMenu = () => (
+  <DropdownMenu>
+    <DropdownMenuTrigger
+      aria-label="Выбор языка / Settings"
+      className="inline-flex items-center gap-1.5 px-2.5 py-1.5 rounded-full border border-white/25 bg-white/5 hover:bg-white/15 hover:border-white/50 transition-colors text-white text-[12px] md:text-[13px] font-medium focus:outline-none focus-visible:ring-2 focus-visible:ring-white/60"
+    >
+      <Settings className="w-3.5 h-3.5" />
+      <span className="hidden sm:inline">Язык</span>
+    </DropdownMenuTrigger>
+    <DropdownMenuContent align="end" className="w-52">
+      <DropdownMenuLabel className="flex items-center gap-2 text-foreground">
+        <Languages className="w-4 h-4 text-primary" />
+        Выберите язык
+      </DropdownMenuLabel>
+      <DropdownMenuSeparator />
+      {LANGUAGES.map((lang) => (
+        <DropdownMenuItem key={lang.code} asChild>
+          <a
+            href={`https://t.me/dental_vietnam_bot?start=${lang.botParam}`}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="cursor-pointer text-[14px] font-medium"
+          >
+            {lang.label}
+          </a>
+        </DropdownMenuItem>
+      ))}
+    </DropdownMenuContent>
+  </DropdownMenu>
+);
+  <div className="flex items-center gap-1">
+    <div className="flex gap-0.5">
+      {Array.from({ length: 5 }).map((_, i) => (
+        <Star
+          key={i}
+          className={`w-3 h-3 ${
+            i < Math.floor(rating)
+              ? "fill-primary text-primary"
+              : i < rating
+              ? "fill-primary/50 text-primary"
+              : "text-muted-foreground/30"
+          }`}
+        />
+      ))}
+    </div>
+    <span className="text-[11px] font-bold text-foreground ml-0.5">{rating}</span>
+  </div>
+);
+
 const Index = () => {
   const servicesRef = useRef<HTMLDivElement>(null);
   const carouselRef = useRef<HTMLDivElement>(null);
