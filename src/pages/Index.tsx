@@ -10,7 +10,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Car, Hotel, Languages, Ship, Star, Phone, Plane, UserCheck, MessageCircle, Send, ChevronLeft, ChevronRight } from "lucide-react";
 import { useRef, useState } from "react";
 
-const TELEGRAM_LINK = "https://t.me/stomatolog_vietnam?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5!%20%D0%A5%D0%BE%D1%87%D1%83%20%D0%B7%D0%B0%D0%BF%D0%B8%D1%81%D0%B0%D1%82%D1%8C%D1%81%D1%8F%20%D0%BD%D0%B0%20%D0%BA%D0%BE%D0%BD%D1%81%D1%83%D0%BB%D1%8C%D1%82%D0%B0%D1%86%D0%B8%D1%8E%20%D0%BF%D0%BE%20%D0%BF%D0%BE%D0%B2%D0%BE%D0%B4%D1%83%20%D0%BD%D0%BE%D0%B2%D0%BE%D0%B9%20%D1%83%D0%BB%D1%8B%D0%B1%D0%BA%D0%B8%20%D0%B2%20%D0%A5%D0%B0%D0%BB%D0%BE%D0%BD%D0%B3%D0%B5.";
+const TELEGRAM_LINK = "https://t.me/dental_vietnam_bot?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5!%20%D0%A5%D0%BE%D1%87%D1%83%20%D0%B7%D0%B0%D0%BF%D0%B8%D1%81%D0%B0%D1%82%D1%8C%D1%81%D1%8F%20%D0%BD%D0%B0%20%D0%BA%D0%BE%D0%BD%D1%81%D1%83%D0%BB%D1%8C%D1%82%D0%B0%D1%86%D0%B8%D1%8E%20%D0%BF%D0%BE%20%D0%BF%D0%BE%D0%B2%D0%BE%D0%B4%D1%83%20%D0%BD%D0%BE%D0%B2%D0%BE%D0%B9%20%D1%83%D0%BB%D1%8B%D0%B1%D0%BA%D0%B8%20%D0%B2%20%D0%A5%D0%B0%D0%BB%D0%BE%D0%BD%D0%B3%D0%B5.";
 
 const testimonials = [
   { name: "Марина К.", text: "Невероятный сервис! Ульяна помогла с заселением и сопровождала в клинике. Виниры выглядят потрясающе.", date: "Март 2026" },
@@ -409,7 +409,7 @@ const Index = () => {
           </div>
 
           <div className="flex flex-col sm:flex-row items-center justify-center gap-3 mt-6">
-            <a href="https://t.me/stomatolog_vietnam" target="_blank" rel="noopener noreferrer"
+            <a href="https://t.me/dental_vietnam_bot" target="_blank" rel="noopener noreferrer"
               className="inline-flex items-center gap-2 bg-[hsl(200,80%,50%)] hover:bg-[hsl(200,80%,45%)] text-white font-bold text-[15px] px-6 py-3.5 rounded-xl transition-colors w-full sm:w-auto justify-center uppercase tracking-wide">
               <Send className="w-5 h-5" /> СВЯЗАТЬСЯ В TELEGRAM
             </a>
