@@ -11,6 +11,8 @@ import {
   Car, Hotel, Languages, Ship, Star, Phone, Plane, UserCheck,
   MessageCircle, Send, ChevronLeft, ChevronRight, Settings, Check,
 } from "lucide-react";
+import { Input } from "@/components/ui/input";
+import { toast } from "@/hooks/use-toast";
 import { useEffect, useRef, useState } from "react";
 import {
   DropdownMenu,
@@ -24,7 +26,6 @@ import {
 // All Telegram CTAs go to the bot — language switcher does NOT open Telegram.
 const TELEGRAM_BOT = "https://t.me/dental_vietnam_bot?start=consult";
 const TELEGRAM_CONTACT = "https://t.me/dental_vietnam_bot";
-const WHATSAPP_LINK = "https://wa.me/79041274825";
 
 type LangCode = "ru" | "en" | "fr" | "de";
 
@@ -71,7 +72,16 @@ type Dict = {
     heading: string; swipeHint: string; leaveReview: string;
   };
   footer: {
-    telegram: string; whatsapp: string;
+    telegram: string;
+  };
+  callback: {
+    heading: string;
+    subheading: string;
+    namePlaceholder: string;
+    phonePlaceholder: string;
+    submit: string;
+    success: string;
+    successDesc: string;
   };
 };
 
@@ -115,7 +125,16 @@ const DICTIONARIES: Record<LangCode, Dict> = {
       evgenia: { name: "Евгения", role: "Координатор", desc: "Поддержка и комфорт на каждом этапе вашего лечения." },
     },
     testimonials: { heading: "Отзывы наших пациентов", swipeHint: "Свайпайте для просмотра", leaveReview: "ОСТАВИТЬ ОТЗЫВ" },
-    footer: { telegram: "СВЯЗАТЬСЯ В TELEGRAM", whatsapp: "СВЯЗАТЬСЯ В WHATSAPP" },
+    footer: { telegram: "СВЯЗАТЬСЯ В TELEGRAM" },
+    callback: {
+      heading: "Оставьте заявку — мы свяжемся с вами",
+      subheading: "Если вы хотите, чтобы мы вам перезвонили, оставьте ваше имя и номер телефона. Мы свяжемся в удобное для вас время.",
+      namePlaceholder: "Как к вам обращаться",
+      phonePlaceholder: "Ваш номер телефона",
+      submit: "ОТПРАВИТЬ ЗАЯВКУ",
+      success: "Заявка отправлена",
+      successDesc: "Спасибо! Наш координатор свяжется с вами в ближайшее время.",
+    },
   },
   en: {
     settings: "Settings",
@@ -156,7 +175,16 @@ const DICTIONARIES: Record<LangCode, Dict> = {
       evgenia: { name: "Evgenia", role: "Coordinator", desc: "Comfort and support at every stage of your treatment." },
     },
     testimonials: { heading: "What our patients say", swipeHint: "Swipe to browse", leaveReview: "LEAVE A REVIEW" },
-    footer: { telegram: "CONTACT VIA TELEGRAM", whatsapp: "CONTACT VIA WHATSAPP" },
+    footer: { telegram: "CONTACT VIA TELEGRAM" },
+    callback: {
+      heading: "Leave a request — we will contact you",
+      subheading: "If you would like us to call you back, please leave your name and phone number. We will get in touch at a time convenient for you.",
+      namePlaceholder: "How may we address you",
+      phonePlaceholder: "Your phone number",
+      submit: "SEND REQUEST",
+      success: "Request sent",
+      successDesc: "Thank you. Our coordinator will contact you shortly.",
+    },
   },
   fr: {
     settings: "Paramètres",
@@ -197,7 +225,16 @@ const DICTIONARIES: Record<LangCode, Dict> = {
       evgenia: { name: "Evgenia", role: "Coordinatrice", desc: "Confort et soutien à chaque étape de votre traitement." },
     },
     testimonials: { heading: "Avis de nos patients", swipeHint: "Glissez pour voir plus", leaveReview: "LAISSER UN AVIS" },
-    footer: { telegram: "CONTACTER SUR TELEGRAM", whatsapp: "CONTACTER SUR WHATSAPP" },
+    footer: { telegram: "CONTACTER SUR TELEGRAM" },
+    callback: {
+      heading: "Laissez une demande — nous vous contacterons",
+      subheading: "Si vous souhaitez que nous vous rappelions, laissez votre nom et votre numéro de téléphone. Nous vous contacterons à un moment qui vous convient.",
+      namePlaceholder: "Comment pouvons-nous vous appeler",
+      phonePlaceholder: "Votre numéro de téléphone",
+      submit: "ENVOYER LA DEMANDE",
+      success: "Demande envoyée",
+      successDesc: "Merci. Notre coordinatrice vous contactera prochainement.",
+    },
   },
   de: {
     settings: "Einstellungen",
@@ -238,7 +275,16 @@ const DICTIONARIES: Record<LangCode, Dict> = {
       evgenia: { name: "Evgenia", role: "Koordinatorin", desc: "Komfort und Unterstützung in jeder Behandlungsphase." },
     },
     testimonials: { heading: "Was unsere Patienten sagen", swipeHint: "Wischen zum Blättern", leaveReview: "BEWERTUNG ABGEBEN" },
-    footer: { telegram: "AUF TELEGRAM KONTAKTIEREN", whatsapp: "AUF WHATSAPP KONTAKTIEREN" },
+    footer: { telegram: "AUF TELEGRAM KONTAKTIEREN" },
+    callback: {
+      heading: "Hinterlassen Sie eine Anfrage — wir melden uns bei Ihnen",
+      subheading: "Wenn Sie möchten, dass wir Sie zurückrufen, hinterlassen Sie bitte Ihren Namen und Ihre Telefonnummer. Wir melden uns zu einem für Sie passenden Zeitpunkt.",
+      namePlaceholder: "Wie dürfen wir Sie ansprechen",
+      phonePlaceholder: "Ihre Telefonnummer",
+      submit: "ANFRAGE SENDEN",
+      success: "Anfrage gesendet",
+      successDesc: "Vielen Dank. Unsere Koordinatorin meldet sich in Kürze bei Ihnen.",
+    },
   },
 };
 
@@ -308,6 +354,22 @@ const Index = () => {
   const setLang = (l: LangCode) => {
     setLangState(l);
     try { window.localStorage.setItem("dv_lang", l); } catch {}
+  };
+
+  const [callbackName, setCallbackName] = useState("");
+  const [callbackPhone, setCallbackPhone] = useState("");
+  const [callbackSubmitting, setCallbackSubmitting] = useState(false);
+
+  const handleCallbackSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!callbackName.trim() || !callbackPhone.trim()) return;
+    setCallbackSubmitting(true);
+    // Front-end only stub: log + toast confirmation. Backend wiring can be added later.
+    console.log("[callback request]", { name: callbackName, phone: callbackPhone, lang });
+    toast({ title: t.callback.success, description: t.callback.successDesc });
+    setCallbackName("");
+    setCallbackPhone("");
+    setCallbackSubmitting(false);
   };
 
   useEffect(() => {
@@ -702,6 +764,46 @@ const Index = () => {
         </div>
       </section>
 
+      {/* Callback request */}
+      <section className="py-14 px-4 md:px-6 bg-secondary/30">
+        <div className="max-w-2xl mx-auto text-center">
+          <h2 className="font-display text-2xl md:text-3xl font-bold text-foreground mb-3">
+            {t.callback.heading}
+          </h2>
+          <p className="text-muted-foreground text-[15px] mb-7 leading-relaxed">
+            {t.callback.subheading}
+          </p>
+          <form onSubmit={handleCallbackSubmit} className="flex flex-col gap-3 text-left">
+            <Input
+              type="text"
+              required
+              value={callbackName}
+              onChange={(e) => setCallbackName(e.target.value)}
+              placeholder={t.callback.namePlaceholder}
+              className="h-12 text-[15px] bg-background border-border"
+              autoComplete="name"
+            />
+            <Input
+              type="tel"
+              required
+              value={callbackPhone}
+              onChange={(e) => setCallbackPhone(e.target.value)}
+              placeholder={t.callback.phonePlaceholder}
+              className="h-12 text-[15px] bg-background border-border"
+              autoComplete="tel"
+            />
+            <Button
+              type="submit"
+              size="lg"
+              disabled={callbackSubmitting}
+              className="mt-2 text-[15px] font-bold py-6 rounded-xl uppercase tracking-wide"
+            >
+              {t.callback.submit}
+            </Button>
+          </form>
+        </div>
+      </section>
+
       {/* Footer */}
       <footer className="py-8 px-4 md:px-6 bg-[hsl(210,55%,15%)] text-white">
         <div className="max-w-6xl mx-auto">
@@ -720,14 +822,10 @@ const Index = () => {
             </div>
           </div>
 
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-3 mt-6">
+          <div className="flex items-center justify-center gap-3 mt-6">
             <a href={TELEGRAM_CONTACT} target="_blank" rel="noopener noreferrer"
               className="inline-flex items-center gap-2 bg-[hsl(200,80%,50%)] hover:bg-[hsl(200,80%,45%)] text-white font-bold text-[15px] px-6 py-3.5 rounded-xl transition-colors w-full sm:w-auto justify-center uppercase tracking-wide">
               <Send className="w-5 h-5" /> {t.footer.telegram}
-            </a>
-            <a href={WHATSAPP_LINK} target="_blank" rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 bg-[hsl(142,70%,40%)] hover:bg-[hsl(142,70%,35%)] text-white font-bold text-[15px] px-6 py-3.5 rounded-xl transition-colors w-full sm:w-auto justify-center uppercase tracking-wide">
-              <MessageCircle className="w-5 h-5" /> {t.footer.whatsapp}
             </a>
           </div>
         </div>
