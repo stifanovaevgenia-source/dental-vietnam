@@ -356,6 +356,22 @@ const Index = () => {
     try { window.localStorage.setItem("dv_lang", l); } catch {}
   };
 
+  const [callbackName, setCallbackName] = useState("");
+  const [callbackPhone, setCallbackPhone] = useState("");
+  const [callbackSubmitting, setCallbackSubmitting] = useState(false);
+
+  const handleCallbackSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!callbackName.trim() || !callbackPhone.trim()) return;
+    setCallbackSubmitting(true);
+    // Front-end only stub: log + toast confirmation. Backend wiring can be added later.
+    console.log("[callback request]", { name: callbackName, phone: callbackPhone, lang });
+    toast({ title: t.callback.success, description: t.callback.successDesc });
+    setCallbackName("");
+    setCallbackPhone("");
+    setCallbackSubmitting(false);
+  };
+
   useEffect(() => {
     document.documentElement.lang = lang;
   }, [lang]);
@@ -748,6 +764,46 @@ const Index = () => {
         </div>
       </section>
 
+      {/* Callback request */}
+      <section className="py-14 px-4 md:px-6 bg-secondary/30">
+        <div className="max-w-2xl mx-auto text-center">
+          <h2 className="font-display text-2xl md:text-3xl font-bold text-foreground mb-3">
+            {t.callback.heading}
+          </h2>
+          <p className="text-muted-foreground text-[15px] mb-7 leading-relaxed">
+            {t.callback.subheading}
+          </p>
+          <form onSubmit={handleCallbackSubmit} className="flex flex-col gap-3 text-left">
+            <Input
+              type="text"
+              required
+              value={callbackName}
+              onChange={(e) => setCallbackName(e.target.value)}
+              placeholder={t.callback.namePlaceholder}
+              className="h-12 text-[15px] bg-background border-border"
+              autoComplete="name"
+            />
+            <Input
+              type="tel"
+              required
+              value={callbackPhone}
+              onChange={(e) => setCallbackPhone(e.target.value)}
+              placeholder={t.callback.phonePlaceholder}
+              className="h-12 text-[15px] bg-background border-border"
+              autoComplete="tel"
+            />
+            <Button
+              type="submit"
+              size="lg"
+              disabled={callbackSubmitting}
+              className="mt-2 text-[15px] font-bold py-6 rounded-xl uppercase tracking-wide"
+            >
+              {t.callback.submit}
+            </Button>
+          </form>
+        </div>
+      </section>
+
       {/* Footer */}
       <footer className="py-8 px-4 md:px-6 bg-[hsl(210,55%,15%)] text-white">
         <div className="max-w-6xl mx-auto">
@@ -766,14 +822,10 @@ const Index = () => {
             </div>
           </div>
 
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-3 mt-6">
+          <div className="flex items-center justify-center gap-3 mt-6">
             <a href={TELEGRAM_CONTACT} target="_blank" rel="noopener noreferrer"
               className="inline-flex items-center gap-2 bg-[hsl(200,80%,50%)] hover:bg-[hsl(200,80%,45%)] text-white font-bold text-[15px] px-6 py-3.5 rounded-xl transition-colors w-full sm:w-auto justify-center uppercase tracking-wide">
               <Send className="w-5 h-5" /> {t.footer.telegram}
-            </a>
-            <a href={WHATSAPP_LINK} target="_blank" rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 bg-[hsl(142,70%,40%)] hover:bg-[hsl(142,70%,35%)] text-white font-bold text-[15px] px-6 py-3.5 rounded-xl transition-colors w-full sm:w-auto justify-center uppercase tracking-wide">
-              <MessageCircle className="w-5 h-5" /> {t.footer.whatsapp}
             </a>
           </div>
         </div>
