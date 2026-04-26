@@ -11,6 +11,8 @@ import {
   Car, Hotel, Languages, Ship, Star, Phone, Plane, UserCheck,
   MessageCircle, Send, ChevronLeft, ChevronRight, Settings, Check,
 } from "lucide-react";
+import { Input } from "@/components/ui/input";
+import { toast } from "@/hooks/use-toast";
 import { useEffect, useRef, useState } from "react";
 import {
   DropdownMenu,
@@ -24,7 +26,6 @@ import {
 // All Telegram CTAs go to the bot — language switcher does NOT open Telegram.
 const TELEGRAM_BOT = "https://t.me/dental_vietnam_bot?start=consult";
 const TELEGRAM_CONTACT = "https://t.me/dental_vietnam_bot";
-const WHATSAPP_LINK = "https://wa.me/79041274825";
 
 type LangCode = "ru" | "en" | "fr" | "de";
 
@@ -71,7 +72,16 @@ type Dict = {
     heading: string; swipeHint: string; leaveReview: string;
   };
   footer: {
-    telegram: string; whatsapp: string;
+    telegram: string;
+  };
+  callback: {
+    heading: string;
+    subheading: string;
+    namePlaceholder: string;
+    phonePlaceholder: string;
+    submit: string;
+    success: string;
+    successDesc: string;
   };
 };
 
